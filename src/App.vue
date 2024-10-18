@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app class="nav-bar  animate__animated animate__fadeIn">
+    <v-app-bar app class="nav-bar animate__animated animate__fadeIn">
       <!-- Logo Image -->
       <v-img
         src="https://devjuiceblobstorage.blob.core.windows.net/devjuiceblobstorage/leadership/leadership.png"
@@ -11,20 +11,40 @@
       <v-toolbar-title>Leadership Academy</v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-btn text class="text-white animate__animated animate__bounceIn" to="/us">Nosotros</v-btn>
-      <v-btn text class="text-white animate__animated animate__bounceIn" to="/courses">Oferta</v-btn>
-      <v-btn text class="text-white animate__animated animate__bounceIn" to="/home">Empresas</v-btn>
-      <v-btn text class="text-white animate__animated animate__bounceIn" to="/certifications">Certificaciones</v-btn>
-      <v-btn text class="text-white btn-ingresar animate__animated animate__tada" to="/login">Ingresar</v-btn>
+      <!-- Icono del menú hamburguesa -->
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-navigation-drawer v-model="drawer" app temporary>
+        <v-list>
+          <v-list-item to="/us">
+            <v-list-item-title>Nosotros</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/courses">
+            <v-list-item-title>Oferta</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/home">
+            <v-list-item-title>Empresas</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/certifications">
+            <v-list-item-title>Certificaciones</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/login">
+            <v-list-item-title>Ingresar</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <div class="d-none d-md-flex options-menu">
+        <v-btn text class="text-white animate__animated animate__bounceIn" to="/courses">Productos</v-btn>
+        <v-btn text class="text-white animate__animated animate__bounceIn" to="/us">Nosotros</v-btn>
+        <v-btn text class="text-white animate__animated animate__bounceIn" to="/home">Alianzas</v-btn>
+        <v-btn text class="text-white animate__animated animate__bounceIn" to="/contact">Contacto</v-btn>
+        <v-btn text class="text-white btn-ingresar animate__animated animate__tada" to="/login">Ingresar</v-btn>
+      </div>
     </v-app-bar>
 
     <v-main>
       <v-container>
-        <!--
-        <h1>Bienvenido a Mi Aplicación</h1>
-        <p>Contenido de la página aquí...</p>
-        -->
-        
         <router-view></router-view> <!-- Aquí se muestran las vistas -->
       </v-container>
     </v-main>
@@ -33,14 +53,20 @@
 
 <script>
 export default {
-  name: 'App',
+  data() {
+    return {
+      drawer: false, // Controla el estado del menú lateral
+    };
+  },
 }
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
 <style>
   /* Agrega cualquier estilo adicional aquí */
   .nav-bar {
-    background-color: #008000 !important;
+    //background-color: #008000 !important;
+    background-color: #103f91 !important;
   }
   .text-white, .v-toolbar-title {
     color: #fff !important;
@@ -55,5 +81,8 @@ export default {
   .btn-ingresar {
     margin-left: 5px;
     background-color: #ff5b00;
+  }
+  .options-menu {
+    padding-right: 10px;
   }
 </style>

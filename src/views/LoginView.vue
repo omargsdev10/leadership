@@ -92,17 +92,19 @@
   }
   .login-container {
     color: white;
-    background: linear-gradient(to bottom, #008000, #004d00); /* Degradado de verde claro a oscuro */
+    //background: linear-gradient(to bottom, #008000, #004d00); /* Degradado de verde claro a oscuro */
+    background: linear-gradient(to bottom, #103f91, #41a5ee); /* Degradado de verde claro a oscuro */
     max-height: 100vh; /* Para cubrir toda la altura de la pantalla */
   }
   .btn-login {
-    background-color: #ff5b00 !important;
+    //background-color: #ff5b00 !important;
+    background-color: #103f91 !important;
   }
   .btn-login .v-btn__content{
     color: white !important;
   }
   .forgot-password-link {
-    color: #fff; /* Color verde */
+    color: #fff;
     text-decoration: none;
   }
 
