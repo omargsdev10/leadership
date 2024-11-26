@@ -6,7 +6,8 @@ import ThisIsUsView from '@/views/ThisIsUsView.vue';
 import LoginView from '@/views/LoginView.vue';
 import CourseTopicsView from '@/views/CourseTopicsView.vue';
 import TopicContentView from '@/views/TopicContentView.vue';
-
+import FormTopicView from '@/views/topic/FormTopicView.vue';
+import PublicRegisterView from '@/views/users/PublicRegisterView.vue';
 const routes = [
   {
     path: '/',
@@ -30,8 +31,9 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: LoginView,
+    meta: { requiresBackground: true }
   },
   {
     path: '/course/topics',
@@ -42,6 +44,17 @@ const routes = [
     path: '/course/topics/content',
     name: 'TopicContent',
     component: TopicContentView,
+  },
+  {
+    path: '/topic/form',
+    name: 'FormTopic',
+    component: FormTopicView,
+  },
+  {
+    path: '/sign-up',
+    name: 'PublicRegister',
+    component: PublicRegisterView,
+    meta: { requiresBackground: true }
   }
 ];
 
